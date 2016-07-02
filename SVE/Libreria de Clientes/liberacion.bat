@@ -1,0 +1,15 @@
+@echo off
+set FECHA_ACTUAL=%DATE%
+set ANIO=%FECHA_ACTUAL:~6,4%
+set MES=%FECHA_ACTUAL:~3,2%
+set DIA=%FECHA_ACTUAL:~0,2%
+set RUTA=%ANIO%%MES%%DIA%_SGE_MOD_NUMPAQLIB
+MD %RUTA%
+cd %RUTA% 
+MD CODIGO_FUENTE
+MD DOCUMENTOS
+MD SCRIPTS
+MD EJECUTABLES
+copy "%~d0%~p0\..\..\..\Documentos\SPPR.xlsx" "%~d0%~p0\%RUTA%"
+ren "%~d0%~p0\%RUTA%\SPPR.xlsx" "%RUTA%.xlsx"
+exit
